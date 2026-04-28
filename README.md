@@ -27,7 +27,7 @@ This repository contains an end-to-end pipeline to:
 
 ## Pipeline overview (run order)
 
-### 0) Preprocessing (choose ONE branch)
+### 1) Preprocessing (choose ONE branch)
 
 This repository supports **two DWI preprocessing pathways**, depending on whether you have
 **reversed phase-encoding (blip-up/blip-down)** data or only a **single phase-encoding** DWI.
@@ -50,7 +50,7 @@ This repository supports **two DWI preprocessing pathways**, depending on whethe
 
 ---
 
-### 1) FBA + Harmonization + TractSeg (run order)
+### 2) FBA + Harmonization + TractSeg (run order)
 
 1. `fba/estimate_rf.sh`  
 2. `fba/calculate_average_rf.sh`  
@@ -89,12 +89,12 @@ This repository supports **two DWI preprocessing pathways**, depending on whethe
 bash preprocess/preprocess_reversed_pe.sh
 
 #### Option B — Single phase-encoding + Synb0-DISCO
-# Pre-Synb0: denoise/degibbs + stage Synb0 inputs
+##### Pre-Synb0: denoise/degibbs + stage Synb0 inputs
 bash preprocess/preprocess_single_pe_presynb0.sh sub-XXX
 
-# Run Synb0-DISCO externally (see Synb0-DISCO documentation)
+##### Run Synb0-DISCO externally (see Synb0-DISCO documentation)
 
-# Post-Synb0: dwifslpreproc using synthesized undistorted b0 + optional bias correction
+##### Post-Synb0: dwifslpreproc using synthesized undistorted b0 + optional bias correction
 bash preprocess/preprocess_single_pe_postsynb0.sh sub-XXX
 
 ### 2) FBA + Harmonization + TractSeg
